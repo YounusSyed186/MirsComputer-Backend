@@ -10,7 +10,10 @@ import router1 from './router/productRoutes.js';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: `${process.env.PORT}`, // ⬅️ your actual Vercel frontend URL
+  credentials: true
+}));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
