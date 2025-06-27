@@ -21,7 +21,7 @@ const productSchema = new mongoose.Schema(
     specifications: { type: String },
     features: { type: String },
 
-    isNew: { type: Boolean, default: false },
+    isNewProduct: { type: Boolean, default: false },
     isFeatured: { type: Boolean, default: false },
     isRefurbished: { type: Boolean, default: false },
     warrantyTime: { type: String },

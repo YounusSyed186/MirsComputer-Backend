@@ -13,7 +13,7 @@ export const createProduct = async (req, res) => {
             rating, reviews, stock, minStock, status,
             description, specifications, features,
             warrantyTime, deliveryTime,
-            isNew, isFeatured, isRefurbished
+            isNewProduct, isFeatured, isRefurbished
         } = req.body;
 
 
@@ -42,7 +42,7 @@ export const createProduct = async (req, res) => {
             features,
             warrantyTime,
             deliveryTime,
-            isNew: isNew === 'true',
+            isNewProduct: isNewProduct === 'true',
             isFeatured: isFeatured === 'true',
             isRefurbished: isRefurbished === 'true',
             images: imageUrls,
