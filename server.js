@@ -10,9 +10,20 @@ import router1 from './router/productRoutes.js';
 dotenv.config();
 
 const app = express();
+const allowedOrigins = [
+  'https://mirscomputers.vercel.app',
+  'https://mirscomputers-2jpawn80b-younus-syeds-projects.vercel.app', // Add your preview deployment
+  'http://localhost:3000', // Optional for local dev
+];
 app.use(cors({
-  origin: 'https://mirscomputers.vercel.app', // ⬅️ your actual Vercel frontend URL
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
