@@ -12,12 +12,16 @@ dotenv.config();
 const app = express();
 const allowedOrigins = [
   'https://mirscomputers.vercel.app',
-  'https://mirscomputers-efayg4smf-younus-syeds-projects.vercel.app/', // Add your preview deployment
+  'https://mirscomputers-*-younus-syeds-projects.vercel.app/', // Add your preview deployment
   'http://localhost:3000', // Optional for local dev
 ];
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (
+      !origin ||
+      origin === 'https://mirscomputers.vercel.app' || // Production
+      origin.endsWith('.vercel.app')                  // Previews
+    ) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
