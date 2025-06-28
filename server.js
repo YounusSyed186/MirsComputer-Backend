@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 const allowedOrigins = [
   'https://mirscomputers.vercel.app',
-  'https://mirscomputers-efayg4smf-younus-syeds-projects.vercel.app/', // Add your preview deployment
+  'https://mirscomputers-rhfl0la56-younus-syeds-projects.vercel.app/', // Add your preview deployment
   'http://localhost:3000', // Optional for local dev
 ];
 app.use(cors({
